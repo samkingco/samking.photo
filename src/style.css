@@ -1,15 +1,26 @@
 @font-face {
   font-family: "Text";
   font-display: fallback;
-  src: url("Text.woff") format("woff"), url("Text.woff2") format("woff2");
+  src: url("fonts/Text.woff") format("woff"),
+    url("fonts/Text.woff2") format("woff2");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
+  font-family: "Text";
+  font-display: fallback;
+  src: url("fonts/TextBold.woff") format("woff"),
+    url("fonts/TextBold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
   font-family: "Nikolai";
   font-display: fallback;
-  src: url("Nikolai.woff") format("woff"), url("Nikolai.woff2") format("woff2");
+  src: url("fonts/Nikolai.woff") format("woff"),
+    url("fonts/Nikolai.woff2") format("woff2");
   font-style: normal;
   font-weight: bold;
 }
@@ -26,21 +37,6 @@
 ::selection {
   background-color: var(--accent);
   color: var(--background);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: rgb(255, 255, 255);
-    --background-alpha: 255, 255, 255;
-    --foreground: rgb(0, 0, 0);
-    --foreground-alpha: 0, 0, 0;
-    --subdued: rgb(88 88 88);
-    --accent: rgb(245, 42, 42);
-  }
-
-  ::selection {
-    color: var(--foreground);
-  }
 }
 
 *,
@@ -69,13 +65,7 @@ body {
 
 @media (min-width: 30em) {
   body {
-    padding: 12vw 12vw;
-  }
-}
-
-@media (min-width: 60em) {
-  body {
-    padding: 8vw 12vw;
+    padding: 6em 8vw;
   }
 }
 
@@ -104,6 +94,7 @@ p + p {
 
 img {
   max-width: 100%;
+  height: auto;
   line-height: 0;
   margin: 0;
   padding: 0;
@@ -131,12 +122,38 @@ hr {
   color: var(--subdued);
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100%;
+.inverted {
+  --background: rgb(255, 255, 255);
+  --background-alpha: 255, 255, 255;
+  --foreground: rgb(0, 0, 0);
+  --foreground-alpha: 0, 0, 0;
+  --subdued: rgb(88 88 88);
+
+  color: var(--foreground);
+  background: var(--background);
+  padding: 1rem;
+  max-width: 30em;
+  margin: 2rem 0;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: rgb(255, 255, 255);
+    --background-alpha: 255, 255, 255;
+    --foreground: rgb(0, 0, 0);
+    --foreground-alpha: 0, 0, 0;
+    --subdued: rgb(88 88 88);
+  }
+
+  ::selection {
+    color: var(--foreground);
+  }
+
+  .inverted {
+    --background: rgb(0, 0, 0);
+    --background-alpha: 0, 0, 0;
+    --foreground: rgb(255, 255, 255);
+    --foreground-alpha: 255, 255, 255;
+    --subdued: rgb(150 150 150);
+  }
 }

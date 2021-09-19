@@ -10,7 +10,7 @@
       content="A site for photos I've taken over the years"
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico" />
     <meta property="og:title" content="Sam King" />
     <meta
       property="og:description"
@@ -24,30 +24,41 @@
     <meta name="twitter:image" content="https://samking.photo/avatar.jpg" />
   </head>
   <body>
-    <div class="content">
-      <a href="https://samking.design">
+    <a href="https://samking.xyz">
+      <picture>
+        <source src="static/avatar.jpg?as=avif&quality=70" type="image/avif" />
+        <source src="static/avatar.jpg?as=webp&quality=70" type="image/webp" />
+        <source src="static/avatar.jpg?quality=70" type="image/jpeg" />
         <img
-          src="avatar.jpg"
+          src="static/avatar.jpg?quality=70"
           width="200"
           height="200"
           alt="Avatar photo is a self portrait of Sam King. Taken with an old Hasselblad film camera shooting into a mirror."
         />
-      </a>
+      </picture>
+    </a>
 
-      <h1>Sam King</h1>
-      <p class="subdued">he/him</p>
+    <h1>Sam King</h1>
+    <p class="subdued">he/him</p>
+    <p>Updates and new work coming soon.</p>
+
+    <div class="inverted banner">
       <p>
-        Updates and new work coming soon. Check out the archive at
-        <a href="https://archive.samking.photo">archive.samking.photo</a>.
+        <strong>Roots</strong>, a collection of 40 photographs exploring my
+        roots in the Scottish Highlands. Available to purchase on OpenSea.
       </p>
-
-      <hr />
-
-      <ul>
-        <li><a href="https://samking.design">samking.design</a></li>
-        <li><a href="https://instagram.com/samkingco">instagram</a></li>
-        <li><a href="https://twitter.com/samkingco">twitter</a></li>
-      </ul>
+      <p>
+        <a href="https://roots.samking.photo">roots.samking.photo</a>
+      </p>
     </div>
+
+    <ul>
+      <li><a href="https://samking.design">samking.design</a></li>
+      <li><a href="https://instagram.com/samkingco">instagram</a></li>
+      <li><a href="https://twitter.com/samkingco">twitter</a></li>
+      <li>
+        <a href="https://archive.samking.photo">archive</a>
+      </li>
+    </ul>
   </body>
 </html>
