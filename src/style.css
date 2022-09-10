@@ -131,6 +131,9 @@ hr {
 
   color: var(--foreground);
   background: var(--background);
+}
+
+.banner {
   padding: 1rem;
   max-width: 30em;
   margin: 2rem 0;
