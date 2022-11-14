@@ -8,20 +8,20 @@
 }
 
 @font-face {
-  font-family: "Text";
+  font-family: "Mono";
   font-display: fallback;
-  src: url("fonts/TextBold.woff") format("woff"),
-    url("fonts/TextBold.woff2") format("woff2");
+  src: url("fonts/Mono.woff") format("woff"),
+    url("fonts/Mono.woff2") format("woff2");
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 @font-face {
   font-family: "Nikolai";
   font-display: fallback;
-  src: url("fonts/Nikolai.woff") format("woff"),
-    url("fonts/Nikolai.woff2") format("woff2");
-  font-style: normal;
+  src: url("fonts/Nikolai-Italic.woff") format("woff"),
+    url("fonts/Nikolai-Italic.woff2") format("woff2");
+  font-style: italic;
   font-weight: bold;
 }
 
@@ -32,6 +32,10 @@
   --foreground-alpha: 255, 255, 255;
   --subdued: rgb(150 150 150);
   --accent: rgb(245, 42, 42);
+  --font-sans: "Text", system, -apple-system, "Helvetica Neue", Helvetica,
+    "Segoe UI", "Roboto", sans-serif;
+  --font-mono: "Mono", SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono,
+    monospace;
 }
 
 ::selection {
@@ -43,6 +47,7 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  margin: 0;
 }
 
 html {
@@ -54,8 +59,7 @@ body {
   padding: 0;
   min-height: 100%;
   padding: 4em 1em;
-  font-family: "Text", system, -apple-system, "Helvetica Neue", Helvetica,
-    "Segoe UI", "Roboto", sans-serif;
+  font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.5;
   color: var(--foreground);
@@ -63,24 +67,42 @@ body {
   cursor: crosshair;
 }
 
-@media (min-width: 30em) {
+@media (min-width: 32em) {
   body {
     padding: 6em 8vw;
   }
 }
 
 h1,
+h2,
+h3,
 p,
 ul {
-  margin: 0;
   max-width: 30em;
 }
 
 h1 {
   font-family: "Nikolai", serif;
   font-size: 2em;
+  font-style: italic;
   line-height: 1.2;
+}
+
+h1,
+h2,
+h2 + p {
   margin-top: 0.5em;
+}
+
+h2,
+h3 {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+h3 {
+  text-decoration: none;
+  font-family: var(--font-mono);
 }
 
 ul {
@@ -88,25 +110,36 @@ ul {
   padding: 0;
 }
 
+ul + ul {
+  margin-top: 1em;
+}
+
 p + p {
-  margin-top: 0.2em;
+  margin-top: 0.5em;
 }
 
 img {
   max-width: 100%;
   height: auto;
   line-height: 0;
-  margin: 0;
   padding: 0;
 }
 
 a {
-  color: var(--foreground);
+  color: inherit;
+  text-decoration-color: rgba(var(--foreground-alpha), 0.4);
+  transition: color 150ms ease, text-decoration-color 150ms ease;
 }
 
 a:hover {
   color: var(--accent);
+  text-decoration-color: var(--accent);
   cursor: crosshair;
+}
+
+a:focus-visible {
+  text-decoration-color: var(--foreground);
+  outline: none;
 }
 
 hr {
@@ -120,6 +153,24 @@ hr {
 
 .subdued {
   color: var(--subdued);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+.hidden {
+  color: transparent;
+}
+
+.pfp {
+  display: block;
+  max-width: 200px;
+  line-height: 0;
+  cursor: inherit;
+  position: relative;
+  z-index: 1;
 }
 
 .inverted {

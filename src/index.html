@@ -29,49 +29,65 @@
     ></script>
   </head>
   <body>
-    <a href="https://samking.xyz">
-      <picture>
-        <source src="static/avatar.jpg?as=avif&quality=70" type="image/avif" />
-        <source src="static/avatar.jpg?as=webp&quality=70" type="image/webp" />
-        <source src="static/avatar.jpg?quality=70" type="image/jpeg" />
-        <img
-          src="static/avatar.jpg?quality=70"
-          width="200"
-          height="200"
-          alt="Avatar photo is a self portrait of Sam King. Taken with an old Hasselblad film camera shooting into a mirror."
-        />
-      </picture>
-    </a>
+    <main>
+      <div class="pfp">
+        <picture class="pfp-main">
+          <source
+            src="static/avatar.jpg?as=avif&quality=70"
+            type="image/avif"
+          />
+          <source
+            src="static/avatar.jpg?as=webp&quality=70"
+            type="image/webp"
+          />
+          <source src="static/avatar.jpg?quality=70" type="image/jpeg" />
+          <img
+            src="static/avatar.jpg?quality=70"
+            width="200"
+            height="200"
+            alt="Avatar photo is a self portrait of Sam King. Taken with an old Hasselblad film camera shooting into a mirror."
+          />
+        </picture>
+      </div>
 
-    <h1>Sam King</h1>
-    <p class="subdued">he/him</p>
-    <p>Updates and new work coming soon.</p>
-    
-    <div class="inverted banner">
-      <p>
-        <strong>ICE64</strong>, 16 photographs documenting the desolate
-        landscape of Iceland during the winter. Available to collect now.
-      </p>
-      <p>
-        <a href="https://ice64.com">ICE64.com</a>
-      </p>
-    </div>
+      <h1>Sam King</h1>
+      <p class="subdued mono">he/him</p>
+      <p>new photo site in progress.</p>
 
-    <div class="inverted banner">
-      <p>
-        <strong>Roots</strong>, a collection of 40 photographs exploring my
-        roots in the Scottish Highlands. Available to collect now.
-      </p>
-      <p>
-        <a href="https://roots.samking.photo">roots.samking.photo</a>
-      </p>
-    </div>
+      <hr />
 
-    <ul>
-      <li><a href="https://samking.co">samking.co</a></li>
-      <li>
-        <a href="https://archive.samking.photo">archive</a>
-      </li>
-    </ul>
+      <p class="mono">ICE64</p>
+      <p>
+        16 photographs documenting the desolate landscape of Iceland during the
+        winter. Available to collect now.
+      </p>
+      <p>
+        <a href="https://ice64.samking.studio" class="mono"
+          >ice64.samking.studio</a
+        >
+      </p>
+
+      <hr />
+
+      <p class="mono">Roots</p>
+      <p>
+        A collection of 40 photographs exploring my roots in the Scottish
+        Highlands. Available to collect now.
+      </p>
+      <p>
+        <a href="https://roots.samking.studio" class="mono"
+          >roots.samking.studio</a
+        >
+      </p>
+
+      <hr />
+
+      <ul>
+        <li><a href="https://samking.co">samking.co</a></li>
+        <li>
+          <a href="https://archive.samking.photo">photo archive</a>
+        </li>
+      </ul>
+    </main>
   </body>
 </html>
