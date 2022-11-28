@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
 import {
   cameras,
@@ -71,8 +72,13 @@ export default function Keyword({
       />
 
       <header className="page-header">
-        <Body as="h2">{title}</Body>
-        <Mono subdued>{pluralise(images.length, "image", "images")}</Mono>
+        <Mono subdued>
+          <Link href="/journal/tags">Tags</Link>
+        </Mono>
+        <div>
+          <Body as="h2">{title}</Body>
+          <Mono subdued>{pluralise(images.length, "image", "images")}</Mono>
+        </div>
       </header>
 
       <ImagesLayout images={images} layout="grid" />
