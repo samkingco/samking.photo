@@ -5,8 +5,8 @@ import { Mono } from "./Typography";
 export function Nav() {
   const pathname = usePathname();
   let active = "journal";
-  if (pathname && pathname.startsWith("/work")) {
-    active = "work";
+  if (pathname && pathname.startsWith("/about")) {
+    active = "about";
   }
 
   return (
@@ -14,8 +14,8 @@ export function Nav() {
       <Mono as="span" subdued={active !== "journal"}>
         <Link href="/">Journal</Link>
       </Mono>
-      <Mono as="span" subdued={active !== "work"}>
-        <Link href="/work">Work</Link>
+      <Mono as="span" subdued={active !== "about"}>
+        <Link href="/about">About</Link>
       </Mono>
     </nav>
   );

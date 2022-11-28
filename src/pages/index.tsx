@@ -10,15 +10,27 @@ export const getStaticProps: GetStaticProps<{
   return { props: { images } };
 };
 
+function getSizeFromId(id: number) {
+  if (id % 5 === 0) return "medium";
+  if (id % 8 === 0) return "large";
+  return "small";
+}
+
 export default function Home({
   images,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
       <SocialMeta />
-      {images.map((image) => (
-        <ImagePost image={image} key={image.id} />
-      ))}
+      <div className="photo-journal">
+        {images.map((image) => (
+          <ImagePost
+            image={image}
+            size={getSizeFromId(image.id)}
+            key={image.id}
+          />
+        ))}
+      </div>
     </Layout>
   );
 }

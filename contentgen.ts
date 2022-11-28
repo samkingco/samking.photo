@@ -20,7 +20,7 @@ interface SlugValue {
 }
 
 interface Image {
-  id: string;
+  id: number;
   title: string;
   src: string;
   captured: number;
@@ -51,7 +51,7 @@ async function readImageData(file: string): Promise<Image | undefined> {
   const lens = `${CAMERA_MAKE_MAP[exif.LensMake]} ${LENS_MAP[exif.LensModel]}`;
 
   return {
-    id: filename,
+    id: parseInt(filename, 10),
     title: exif.ObjectName || "Untitled",
     src: `/${IMAGES_PATH}/${file}`,
     captured: new Date(exif.CreateDate).getTime(),
@@ -125,7 +125,7 @@ async function main() {
     }
     
     export interface ImageData {
-      id: string;
+      id: number;
       title?: string;
       src: string;
       captured: number;
