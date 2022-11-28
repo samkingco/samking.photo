@@ -246,6 +246,10 @@ hr {
   padding-top: 4em;
 }
 
+.blurb {
+  max-width: 40rem;
+}
+
 .page-header {
   margin-bottom: 4em;
 }
