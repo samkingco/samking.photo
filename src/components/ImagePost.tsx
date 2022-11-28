@@ -1,4 +1,3 @@
-import styled from "@emotion/styled";
 import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,30 +5,13 @@ import React from "react";
 import { ImageData } from "../blog-data";
 import { Body, Mono } from "./Typography";
 
-const Wrapper = styled.div`
-  & + & {
-    margin-top: 4em;
-  }
-
-  @media (min-width: 40rem) {
-    img {
-      max-width: 84vw;
-      max-height: 88vh;
-    }
-  }
-`;
-
-const PostTitle = styled(Body)`
-  margin-top: 1em;
-`;
-
 interface Props {
   image: ImageData;
 }
 
 export function ImagePost({ image }: Props) {
   return (
-    <Wrapper>
+    <div className="image-post">
       <Link href={`/posts/${image.id}`}>
         <Image
           src={image.src}
@@ -38,9 +20,9 @@ export function ImagePost({ image }: Props) {
           alt=""
         />
       </Link>
-      <PostTitle>
+      <Body className="image-post-title">
         {image.id}. {image.title}
-      </PostTitle>
+      </Body>
       <footer>
         <Mono subdued>
           {format(image.captured, "dd/MM/yyyy")}
@@ -57,7 +39,9 @@ export function ImagePost({ image }: Props) {
                   href={`/posts/tags/${keyword.slug}`}
                   key={`${image.id}_${keyword.slug}`}
                 >
-                  <span className="uppercase">{keyword.title}</span>
+                  <Mono as="span" lowercase>
+                    {keyword.title}
+                  </Mono>
                 </Link>
                 {!isLast && ", "}
               </React.Fragment>
@@ -65,6 +49,6 @@ export function ImagePost({ image }: Props) {
           })}
         </Mono>
       </footer>
-    </Wrapper>
+    </div>
   );
 }

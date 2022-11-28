@@ -1,36 +1,11 @@
-import styled from "@emotion/styled";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { cameras, keywords, lenses } from "../../../blog-data";
-import { Layout } from "../../../components/Layout";
-import SocialMeta from "../../../components/SocialMeta";
 import { Body, Mono } from "../../../components/Typography";
 
-export const getStaticProps: GetStaticProps<{
-  keywords: typeof keywords;
-  cameras: typeof cameras;
-  lenses: typeof lenses;
-}> = async (context) => {
-  // TODO: get count of each thing
-  return { props: { keywords, cameras, lenses } };
-};
-
-const Groups = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-`;
-
-export default function KeywordsPage({
-  keywords,
-  cameras,
-  lenses,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Tags() {
   return (
-    <Layout>
-      <SocialMeta title="Tags—Sam King Photo" />
-
-      <Groups>
+    <>
+      <div className="tag-blocks">
         <div>
           <Mono subdued>Tags</Mono>
           {keywords.map((keyword) => (
@@ -57,7 +32,7 @@ export default function KeywordsPage({
             </Body>
           ))}
         </div>
-      </Groups>
-    </Layout>
+      </div>
+    </>
   );
 }

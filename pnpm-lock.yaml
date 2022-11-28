@@ -1,12 +1,15 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@emotion/cache': ^11.10.5
   '@emotion/react': ^11.10.5
   '@emotion/styled': ^11.10.5
+  '@next/font': ^13.0.5
   '@types/common-tags': ^1.8.1
   '@types/node': 18.11.9
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
+  class-variance-authority: ^0.3.0
   common-tags: ^1.8.2
   date-fns: ^2.29.3
   dotenv: ^16.0.3
@@ -18,8 +21,11 @@ specifiers:
   typescript: 4.9.3
 
 dependencies:
+  '@emotion/cache': 11.10.5
   '@emotion/react': 11.10.5_fan5qbzahqtxlm5dzefqlqx5ia
   '@emotion/styled': 11.10.5_otcjdfkheatawhug6fwk7ldzni
+  '@next/font': 13.0.5
+  class-variance-authority: 0.3.0_typescript@4.9.3
   date-fns: 2.29.3
   next: 13.0.5_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -230,6 +236,10 @@ packages:
     resolution: {integrity: sha512-F3KLtiDrUslAZhTYTh8Zk5ZaavbYwLUn3NYPBnOjAXU8hWm0QVGVzKIOuURQ098ofRU4e9oglf3Sj9pFx5nI5w==}
     dev: false
 
+  /@next/font/13.0.5:
+    resolution: {integrity: sha512-NrP4B8pxwerrkkuG/m7MQv0ks89Kk4Lc0kzbiRaYX+Xb0coDaw+I9T+g42aOHf8j8ta1vtKqb5XE1+troZ4CoQ==}
+    dev: false
+
   /@next/swc-android-arm-eabi/13.0.5:
     resolution: {integrity: sha512-YO691dxHlviy6H0eghgwqn+5kU9J3iQnKERHTDSppqjjGDBl6ab4wz9XfI5AhljjkaTg3TknHoIEWFDoZ4Ve8g==}
     engines: {node: '>= 10'}
@@ -416,6 +426,17 @@ packages:
       ansi-styles: 3.2.1
       escape-string-regexp: 1.0.5
       supports-color: 5.5.0
+    dev: false
+
+  /class-variance-authority/0.3.0_typescript@4.9.3:
+    resolution: {integrity: sha512-TFO+pzY9Gedqv8crPhprd647wxhvfpKevPPjiMcteEWsnkHX9yZrD1xMY3ZhRZnLwHUHCCP0LYO6KZIVag/5wQ==}
+    peerDependencies:
+      typescript: '>= 4.5.5 < 5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      typescript: 4.9.3
     dev: false
 
   /client-only/0.0.1:

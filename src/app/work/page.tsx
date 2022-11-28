@@ -1,25 +1,13 @@
-import styled from "@emotion/styled";
-import { Layout } from "../components/Layout";
-import SocialMeta from "../components/SocialMeta";
-import { Body, Mono } from "../components/Typography";
-
-const Block = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-  max-width: 32rem;
-`;
+import { Body, Mono } from "../../components/Typography";
 
 export default function Work() {
   return (
-    <Layout>
-      <SocialMeta title="Work—Sam King Photo" />
-
+    <>
       <Mono subdued>In progress, more coming soon</Mono>
 
       <hr />
 
-      <Block>
+      <div className="work-block">
         <Mono>ICE64</Mono>
         <Body>
           16 photographs documenting the desolate landscape of Iceland during
@@ -28,11 +16,11 @@ export default function Work() {
         <Mono>
           <a href="https://ice64.samking.studio">ice64.samking.studio</a>
         </Mono>
-      </Block>
+      </div>
 
       <hr />
 
-      <Block>
+      <div className="work-block">
         <Mono>Roots</Mono>
         <Body>
           A collection of 40 photographs exploring my roots in the Scottish
@@ -41,11 +29,11 @@ export default function Work() {
         <Mono>
           <a href="https://roots.samking.studio">roots.samking.studio</a>
         </Mono>
-      </Block>
+      </div>
 
       <hr />
 
-      <Block>
+      <div className="work-block">
         <Mono>Prints</Mono>
         <Body>
           High quality archival Giclée prints for holders of Roots NFTs.
@@ -53,7 +41,7 @@ export default function Work() {
         <Mono>
           <a href="https://prints.samking.studio">prints.samking.studio</a>
         </Mono>
-      </Block>
-    </Layout>
+      </div>
+    </>
   );
 }

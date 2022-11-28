@@ -1,8 +1,8 @@
 @font-face {
   font-family: "Text";
   font-display: fallback;
-  src: url("/fonts/Text.woff") format("woff"),
-    url("/fonts/Text.woff2") format("woff2");
+  src: url("./fonts/Text.woff") format("woff"),
+    url("./fonts/Text.woff2") format("woff2");
   font-style: normal;
   font-weight: normal;
 }
@@ -10,8 +10,8 @@
 @font-face {
   font-family: "Mono";
   font-display: fallback;
-  src: url("/fonts/Mono.woff") format("woff"),
-    url("/fonts/Mono.woff2") format("woff2");
+  src: url("./fonts/Mono.woff") format("woff"),
+    url("./fonts/Mono.woff2") format("woff2");
   font-style: normal;
   font-weight: normal;
 }
@@ -19,8 +19,8 @@
 @font-face {
   font-family: "Nikolai";
   font-display: fallback;
-  src: url("/fonts/Nikolai-Italic.woff") format("woff"),
-    url("/fonts/Nikolai-Italic.woff2") format("woff2");
+  src: url("./fonts/Nikolai-Italic.woff") format("woff"),
+    url("./fonts/Nikolai-Italic.woff2") format("woff2");
   font-style: italic;
   font-weight: bold;
 }
@@ -65,6 +65,7 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  margin: 0;
 }
 
 html,
@@ -117,16 +118,154 @@ hr {
   margin: 2em 0;
 }
 
-.wrapper {
+@keyframes ellipsis {
+  to {
+    width: 0.8em;
+  }
+}
+
+.loading-text:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: ellipsis steps(4, end) 900ms infinite;
+  content: "\\2026"; /* ascii code for the ellipsis character */
+  width: 0;
+}
+
+.subdued {
+  color: var(--subdued);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.title a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.title a:hover {
+  opacity: 0.64;
+}
+
+.heading {
+  font-family: var(--font-sans);
+  font-weight: normal;
+  font-size: 1.6rem;
+}
+
+.subheading,
+.body-text {
+  font-family: var(--font-sans);
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.body-text.small {
+  font-size: 0.75rem;
+}
+
+.body-text.large {
+  font-size: 1.6rem;
+}
+
+.mono-text {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+.mono-text.small {
+  font-size: 0.7rem;
+}
+
+.layout {
   min-height: 100%;
   display: flex;
   flex-direction: column;
   padding: 6em 1em;
 }
 
+.layout-nav {
+  display: flex;
+  align-content: start;
+  gap: 1em;
+  text-align: right;
+  margin-top: 1em;
+}
+
+.layout-section {
+  padding-top: 4em;
+}
+
+.page-header {
+  margin-bottom: 4em;
+}
+
+.image-post + .image-post {
+  margin-top: 4em;
+}
+
+.image-post-title {
+  margin-top: 1em;
+}
+
+.exif-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  max-width: 16em;
+}
+
+.exif-grid dt,
+.exif-grid dd {
+  margin: 0;
+}
+
+.exif-grid-item {
+  grid-column: 1 / -1;
+}
+
+.tag-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.work-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  max-width: 32rem;
+}
+
+@media (min-width: 20rem) {
+  .exif-grid-item:not(.exif-grid-item-full) {
+    grid-column: initial;
+  }
+}
 
 @media (min-width: 40rem) {
-  .wrapper {
+  .layout {
     padding: 6em 8vw;
+  }
+
+  .image-post img {
+    max-width: 84vw;
+    max-height: 88vh;
   }
 }
