@@ -16,7 +16,7 @@ export function ExifGrid({ image }: Props) {
         </dt>
         <dd>
           <Body>
-            <Link href={`/posts/tags/${image.camera.slug}`}>
+            <Link href={`/journal/tags/${image.camera.slug}`}>
               {image.camera.title}
             </Link>
           </Body>
@@ -29,7 +29,7 @@ export function ExifGrid({ image }: Props) {
         </dt>
         <dd>
           <Body>
-            <Link href={`/posts/tags/${image.lens.slug}`}>
+            <Link href={`/journal/tags/${image.lens.slug}`}>
               {image.lens.title}
             </Link>
           </Body>
