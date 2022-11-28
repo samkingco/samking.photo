@@ -38,7 +38,7 @@ export default function PostPage({
     <Layout>
       <SocialMeta
         socialImage={image.src}
-        title={`${image.id}. ${image.title || "Untitled"}—Sam King Photo`}
+        title={`${image.id}. ${image.title}—Sam King Photo`}
       />
       <ImagePost key={image.id} image={image} />
       <hr />

@@ -39,7 +39,7 @@ export function ImagePost({ image }: Props) {
         />
       </Link>
       <PostTitle>
-        {image.id}. {image.title || "Untitled"}
+        {image.id}. {image.title}
       </PostTitle>
       <footer>
         <Mono subdued>

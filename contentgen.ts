@@ -21,7 +21,7 @@ interface SlugValue {
 
 interface Image {
   id: string;
-  title?: string;
+  title: string;
   src: string;
   captured: number;
   width: number;
@@ -52,7 +52,7 @@ async function readImageData(file: string): Promise<Image | undefined> {
 
   return {
     id: filename,
-    title: exif.ObjectName || undefined,
+    title: exif.ObjectName || "Untitled",
     src: `/${IMAGES_PATH}/${file}`,
     captured: new Date(exif.CreateDate).getTime(),
     width: size.width || 0,
