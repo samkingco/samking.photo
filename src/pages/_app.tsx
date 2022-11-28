@@ -1,3 +1,4 @@
+import "@reach/dialog/styles.css";
 import type { AppProps } from "next/app";
 import "../globals.css";
 

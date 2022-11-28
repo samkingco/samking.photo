@@ -7,7 +7,9 @@ import {
   lenses,
   SlugValue,
 } from "../../../blog-data";
-import { ImagePost } from "../../../components/ImagePost";
+import { ImagesLayout } from "../../../components/ImagesLayout";
+import { Layout } from "../../../components/Layout";
+import SocialMeta from "../../../components/SocialMeta";
 import { Body, Mono } from "../../../components/Typography";
 import { pluralise } from "../../../utils/pluralise";
 
@@ -62,15 +64,18 @@ export default function Keyword({
   title,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <>
+    <Layout>
+      <SocialMeta
+        title={`${title}—Sam King Photo`}
+        socialImage={images[0].src}
+      />
+
       <header className="page-header">
         <Body as="h2">{title}</Body>
         <Mono subdued>{pluralise(images.length, "image", "images")}</Mono>
       </header>
 
-      {images.map((image) => (
-        <ImagePost image={image} key={image.id} />
-      ))}
-    </>
+      <ImagesLayout images={images} layout="grid" />
+    </Layout>
   );
 }

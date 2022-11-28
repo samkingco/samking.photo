@@ -14,9 +14,11 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@next/font": "^13.0.5",
+    "@reach/dialog": "^0.18.0",
     "class-variance-authority": "^0.3.0",
     "date-fns": "^2.29.3",
     "next": "13.0.5",
+    "next-use-contextual-routing": "^2.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.3"

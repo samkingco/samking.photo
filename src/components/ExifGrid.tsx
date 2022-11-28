@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React from "react";
 import { ImageData } from "../blog-data";
 import { Body, Mono } from "./Typography";
 
@@ -68,6 +69,34 @@ export function ExifGrid({ image }: Props) {
         </dt>
         <dd>
           <Body>{image.focal}</Body>
+        </dd>
+      </div>
+
+      <div className="exif-grid-item exif-grid-item-full">
+        <dt>
+          <Mono subdued>Tags</Mono>
+        </dt>
+        <dd>
+          <Body>
+            {image.keywords.map((keyword, index) => {
+              const isFirst = index === 0 && image.keywords.length > 0;
+              const isLast =
+                index === image.keywords.length - 1 &&
+                image.keywords.length > 0;
+
+              return (
+                <React.Fragment key={keyword.slug}>
+                  <Link
+                    href={`/journal/tags/${keyword.slug}`}
+                    key={`${image.id}_${keyword.slug}`}
+                  >
+                    {keyword.title}
+                  </Link>
+                  {!isLast && " • "}
+                </React.Fragment>
+              );
+            })}
+          </Body>
         </dd>
       </div>
     </dl>

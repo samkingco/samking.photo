@@ -28,7 +28,9 @@ export default function KeywordsPage({
           <Mono subdued>Tags</Mono>
           {keywords.map((keyword) => (
             <Body key={keyword.slug}>
-              <Link href={`/posts/tags/${keyword.slug}`}>{keyword.title}</Link>
+              <Link href={`/journal/tags/${keyword.slug}`}>
+                {keyword.title}
+              </Link>
             </Body>
           ))}
         </div>
@@ -36,7 +38,7 @@ export default function KeywordsPage({
           <Mono subdued>Cameras</Mono>
           {cameras.map((camera) => (
             <Body key={camera.slug}>
-              <Link href={`/posts/tags/${camera.slug}`}>{camera.title}</Link>
+              <Link href={`/journal/tags/${camera.slug}`}>{camera.title}</Link>
             </Body>
           ))}
         </div>
@@ -44,7 +46,7 @@ export default function KeywordsPage({
           <Mono subdued>Lenses</Mono>
           {lenses.map((lens) => (
             <Body key={lens.slug}>
-              <Link href={`/posts/tags/${lens.slug}`}>{lens.title}</Link>
+              <Link href={`/journal/tags/${lens.slug}`}>{lens.title}</Link>
             </Body>
           ))}
         </div>
