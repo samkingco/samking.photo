@@ -1,4 +1,5 @@
-import { usePathname } from "next/navigation";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
 interface Props {
   title?: string;
@@ -11,16 +12,13 @@ export default function SocialMeta({
   description = "A journal of photographs by Sam King.",
   socialImage = "/avatar.jpg",
 }: Props) {
-  const pathname = usePathname();
+  const router = useRouter();
   const baseUrl = "https://samking.photo";
-  const url = `${baseUrl}/${pathname || ""}`;
+  const url = `${baseUrl}/${router.asPath}`;
   const ogImage = `${baseUrl}${socialImage}`;
 
   return (
-    <>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width" />
-
+    <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -36,6 +34,6 @@ export default function SocialMeta({
       <meta name="twitter:image" content={ogImage} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@samkingco" />
-    </>
+    </Head>
   );
 }

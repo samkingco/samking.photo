@@ -1,10 +1,28 @@
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { cameras, keywords, lenses } from "../../../blog-data";
+import { Layout } from "../../../components/Layout";
+import SocialMeta from "../../../components/SocialMeta";
 import { Body, Mono } from "../../../components/Typography";
 
-export default function Tags() {
+export const getStaticProps: GetStaticProps<{
+  keywords: typeof keywords;
+  cameras: typeof cameras;
+  lenses: typeof lenses;
+}> = async (context) => {
+  // TODO: get count of each thing
+  return { props: { keywords, cameras, lenses } };
+};
+
+export default function KeywordsPage({
+  keywords,
+  cameras,
+  lenses,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <>
+    <Layout>
+      <SocialMeta title="Tags—Sam King Photo" />
+
       <div className="tag-blocks">
         <div>
           <Mono subdued>Tags</Mono>
@@ -14,7 +32,6 @@ export default function Tags() {
             </Body>
           ))}
         </div>
-
         <div>
           <Mono subdued>Cameras</Mono>
           {cameras.map((camera) => (
@@ -23,7 +40,6 @@ export default function Tags() {
             </Body>
           ))}
         </div>
-
         <div>
           <Mono subdued>Lenses</Mono>
           {lenses.map((lens) => (
@@ -33,6 +49,6 @@ export default function Tags() {
           ))}
         </div>
       </div>
-    </>
+    </Layout>
   );
 }

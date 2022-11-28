@@ -1,8 +1,12 @@
-import { Body, Mono } from "../../components/Typography";
+import { Layout } from "../components/Layout";
+import SocialMeta from "../components/SocialMeta";
+import { Body, Mono } from "../components/Typography";
 
 export default function Work() {
   return (
-    <>
+    <Layout>
+      <SocialMeta title="Work—Sam King Photo" />
+
       <Mono subdued>In progress, more coming soon</Mono>
 
       <hr />
@@ -42,6 +46,6 @@ export default function Work() {
           <a href="https://prints.samking.studio">prints.samking.studio</a>
         </Mono>
       </div>
-    </>
+    </Layout>
   );
 }

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "Text";
   font-display: fallback;
-  src: url("./fonts/Text.woff") format("woff"),
-    url("./fonts/Text.woff2") format("woff2");
+  src: url("/fonts/Text.woff") format("woff"),
+    url("/fonts/Text.woff2") format("woff2");
   font-style: normal;
   font-weight: normal;
 }
@@ -10,8 +10,8 @@
 @font-face {
   font-family: "Mono";
   font-display: fallback;
-  src: url("./fonts/Mono.woff") format("woff"),
-    url("./fonts/Mono.woff2") format("woff2");
+  src: url("/fonts/Mono.woff") format("woff"),
+    url("/fonts/Mono.woff2") format("woff2");
   font-style: normal;
   font-weight: normal;
 }
@@ -19,8 +19,8 @@
 @font-face {
   font-family: "Nikolai";
   font-display: fallback;
-  src: url("./fonts/Nikolai-Italic.woff") format("woff"),
-    url("./fonts/Nikolai-Italic.woff2") format("woff2");
+  src: url("/fonts/Nikolai-Italic.woff") format("woff"),
+    url("/fonts/Nikolai-Italic.woff2") format("woff2");
   font-style: italic;
   font-weight: bold;
 }
@@ -202,7 +202,7 @@ hr {
 
 .layout-nav {
   display: flex;
-  align-content: start;
+  align-content: flex-start;
   gap: 1em;
   text-align: right;
   margin-top: 1em;
