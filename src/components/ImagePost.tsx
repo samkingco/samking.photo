@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import { ImageData } from "../blog-data";
 import { Body, Mono } from "./Typography";
 
@@ -49,7 +50,7 @@ export function ImagePost({ image }: Props) {
               index === image.keywords.length - 1 && image.keywords.length > 0;
 
             return (
-              <>
+              <React.Fragment key={keyword.slug}>
                 {" "}
                 {isFirst && "• "}
                 <Link
@@ -59,7 +60,7 @@ export function ImagePost({ image }: Props) {
                   <span className="uppercase">{keyword.title}</span>
                 </Link>
                 {!isLast && ", "}
-              </>
+              </React.Fragment>
             );
           })}
         </Mono>
