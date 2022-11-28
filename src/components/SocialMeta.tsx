@@ -18,6 +18,9 @@ export default function SocialMeta({
 
   return (
     <>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width" />
+
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
