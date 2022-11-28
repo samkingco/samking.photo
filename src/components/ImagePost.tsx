@@ -1,7 +1,26 @@
+import styled from "@emotion/styled";
 import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import { ImageData } from "../blog-data";
+import { Body, Mono } from "./Typography";
+
+const Wrapper = styled.div`
+  & + & {
+    margin-top: 4em;
+  }
+
+  @media (min-width: 40rem) {
+    img {
+      max-width: 84vw;
+      max-height: 88vh;
+    }
+  }
+`;
+
+const PostTitle = styled(Body)`
+  margin-top: 1em;
+`;
 
 interface Props {
   image: ImageData;
@@ -9,7 +28,7 @@ interface Props {
 
 export function ImagePost({ image }: Props) {
   return (
-    <div className="post-image mono">
+    <Wrapper>
       <Link href={`/posts/${image.id}`}>
         <Image
           src={image.src}
@@ -18,31 +37,33 @@ export function ImagePost({ image }: Props) {
           alt=""
         />
       </Link>
-      <p>
-        <span className="subdued">{image.id}.</span> {image.title || "Untitled"}
-      </p>
-      <footer className="subdued">
-        {format(image.captured, "dd/MM/yyyy")}
-        {image.keywords.map((keyword, index) => {
-          const isFirst = index === 0 && image.keywords.length > 0;
-          const isLast =
-            index === image.keywords.length - 1 && image.keywords.length > 0;
+      <PostTitle>
+        {image.id}. {image.title || "Untitled"}
+      </PostTitle>
+      <footer>
+        <Mono subdued>
+          {format(image.captured, "dd/MM/yyyy")}
+          {image.keywords.map((keyword, index) => {
+            const isFirst = index === 0 && image.keywords.length > 0;
+            const isLast =
+              index === image.keywords.length - 1 && image.keywords.length > 0;
 
-          return (
-            <>
-              {" "}
-              {isFirst && "• "}
-              <Link
-                href={`/posts/tags/${keyword.slug}`}
-                key={`${image.id}_${keyword.slug}`}
-              >
-                <span className="uppercase">{keyword.title}</span>
-              </Link>
-              {!isLast && ", "}
-            </>
-          );
-        })}
+            return (
+              <>
+                {" "}
+                {isFirst && "• "}
+                <Link
+                  href={`/posts/tags/${keyword.slug}`}
+                  key={`${image.id}_${keyword.slug}`}
+                >
+                  <span className="uppercase">{keyword.title}</span>
+                </Link>
+                {!isLast && ", "}
+              </>
+            );
+          })}
+        </Mono>
       </footer>
-    </div>
+    </Wrapper>
   );
 }

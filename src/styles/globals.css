@@ -34,6 +34,7 @@
   --extra-subdued: rgb(220, 220, 220);
   --accent: rgb(245, 42, 42);
   --accent-alpha: 245, 42, 42;
+  --font-heading: "Nikolai", serif;
   --font-sans: "Text", system, -apple-system, "Helvetica Neue", Helvetica,
     "Segoe UI", "Roboto", sans-serif;
   --font-mono: "Mono", SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono,
@@ -83,49 +84,6 @@ body {
   cursor: crosshair;
 }
 
-h1,
-h2,
-h3,
-h4,
-p,
-ul {
-  margin: 0;
-}
-
-h1 {
-  font-family: "Nikolai", serif;
-  font-size: 1em;
-  font-style: italic;
-}
-
-h1 a,
-h1 a:hover {
-  text-decoration: none;
-  color: var(--foreground);
-  transition: opacity 150ms ease;
-}
-
-h1 a:hover {
-  opacity: 0.64;
-}
-
-h2 {
-  font-family: "Nikolai", serif;
-  font-size: 2em;
-  font-weight: normal;
-  font-style: italic;
-}
-
-h3 {
-  font-size: 1em;
-  font-weight: normal;
-  color: var(--subdued);
-}
-
-h4 + p {
-  margin-top: 0.125em;
-}
-
 p + p {
   margin-top: 0.5em;
 }
@@ -167,45 +125,11 @@ hr {
   margin: 2em 0;
 }
 
-.subdued {
-  color: var(--subdued);
-}
-
-.error {
-  color: var(--accent);
-}
-
-.mono {
-  font-family: var(--font-mono);
-  font-size: 0.875em;
-}
-
-.small {
-  font-size: 0.875em;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.underline {
-  text-decoration: underline;
-  text-decoration-color: rgba(var(--foreground-alpha), 0.4);
-}
-
-.no-underline {
-  text-decoration: none;
-}
-
-.m0 {
-  margin: 0;
-}
-
 .wrapper {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 4em 1em;
+  padding: 6em 1em;
 }
 
 .global-header {
@@ -237,7 +161,11 @@ hr {
 }
 
 .post-image {
-  margin: 4em 0;
+  text-align: center;
+}
+
+.post-image + .post-image {
+  margin-top: 4em;
 }
 
 @keyframes rotate {

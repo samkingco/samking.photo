@@ -25,4 +25,4 @@ export const keywords: SlugValue[] = [{"slug":"bw","title":"B&W"},{"slug":"porti
 
 export const cameras: SlugValue[] = [{"slug":"fujifilm-gfx50s-ii","title":"Fujifilm GFX50S II"}];
 
-export const lenses: SlugValue[] = [{"slug":"fujifilm-gfx50s-ii","title":"Fujifilm GFX50S II"}];
+export const lenses: SlugValue[] = [{"slug":"fujifilm-gf-32-64mm-f4","title":"Fujifilm GF 32-64mm f4"}];

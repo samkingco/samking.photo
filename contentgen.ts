@@ -96,11 +96,11 @@ function makeCamerasList(images: Image[]) {
 }
 
 function makeLensesList(images: Image[]) {
-  const cameras = new Map<string, SlugValue>();
+  const lenses = new Map<string, SlugValue>();
   for (const image of images) {
-    cameras.set(image.camera.slug, image.camera);
+    lenses.set(image.lens.slug, image.lens);
   }
-  return cameras;
+  return lenses;
 }
 
 async function main() {

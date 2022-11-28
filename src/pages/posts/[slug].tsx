@@ -1,8 +1,11 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
 import { ImageData, images } from "../../blog-data";
 import { ImagePost } from "../../components/ImagePost";
 import { Layout } from "../../components/Layout";
+import SocialMeta from "../../components/SocialMeta";
+import { Mono } from "../../components/Typography";
 
 export const getStaticPaths: GetStaticPaths = async (context) => {
   const paths = images.map((i) => ({ params: { slug: i.id } }));
@@ -34,7 +37,27 @@ export default function PostPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
+      <SocialMeta
+        socialImage={image.src}
+        title={`${image.id}. ${image.title || "Untitled"}—Sam King Photo`}
+      />
+
       <ImagePost key={image.id} image={image} />
+      <hr />
+      <Mono>
+        Camera:{" "}
+        <Link href={`/posts/tags/${image.camera.slug}`}>
+          {image.camera.title}
+        </Link>
+      </Mono>
+      <Mono>
+        Lens:{" "}
+        <Link href={`/posts/tags/${image.lens.slug}`}>{image.lens.title}</Link>
+      </Mono>
+      <Mono>Shutter: {image.exposure}</Mono>
+      <Mono>Aperture: {image.aperture}</Mono>
+      <Mono>ISO: {image.iso}</Mono>
+      <Mono>Focal length: {image.focal}</Mono>
     </Layout>
   );
 }
