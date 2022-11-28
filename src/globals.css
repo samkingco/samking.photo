@@ -331,7 +331,7 @@ hr {
   .image-layout-scroll .image-post.large,
   .image-layout-scroll .image-post.large:nth-of-type(even) {
     width: 100%;
-    max-width: 90vh;
+    max-width: 70vh;
     grid-column: auto/span 2;
     margin: 0 auto;
     padding: 0 2vw;
