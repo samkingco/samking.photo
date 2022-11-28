@@ -1,38 +1,38 @@
 {
   "name": "samking.photo",
-  "version": "1.0.0",
-  "description": "Site for info about my photography",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "copystatic": "copyfiles -f src/static/* dist",
-    "dev": "parcel serve src/index.html -p 3000",
-    "build": "cross-env PARCEL_WORKERS=0 parcel build src/index.html && npm run copystatic"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "contentgen": "ts-node contentgen.ts"
   },
-  "staticFiles": {
-    "staticPath": [
-      "avatar.jpg",
-      "robots.txt"
-    ]
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@tanstack/react-query": "^4.18.0",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9",
+    "date-fns": "^2.29.3",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.0.0",
+    "next": "13.0.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.9.3"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/samkingco/samking.photo.git"
-  },
-  "keywords": [
-    "eth",
-    "ipfs"
-  ],
-  "author": "Sam King",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/samkingco/samking.photo/issues"
-  },
-  "homepage": "https://github.com/samkingco/samking.photo#readme",
   "devDependencies": {
-    "@parcel/config-default": "^2.0.0-rc.0",
-    "@parcel/transformer-image": "^2.0.0-rc.0",
-    "copyfiles": "^2.4.1",
-    "cross-env": "^7.0.3",
-    "parcel": "^2.0.0-rc.0",
-    "sharp": "^0.29.1"
+    "@graphql-codegen/cli": "^2.14.1",
+    "@graphql-codegen/client-preset": "^1.1.5",
+    "@graphql-typed-document-node/core": "^3.1.1",
+    "@types/common-tags": "^1.8.1",
+    "common-tags": "^1.8.2",
+    "dotenv": "^16.0.3",
+    "exifr": "^7.1.3",
+    "image-size": "^1.0.2"
   }
 }

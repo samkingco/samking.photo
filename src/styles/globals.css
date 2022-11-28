@@ -1,0 +1,284 @@
+@font-face {
+  font-family: "Text";
+  font-display: fallback;
+  src: url("/fonts/Text.woff") format("woff"),
+    url("/fonts/Text.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Mono";
+  font-display: fallback;
+  src: url("/fonts/Mono.woff") format("woff"),
+    url("/fonts/Mono.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Nikolai";
+  font-display: fallback;
+  src: url("/fonts/Nikolai-Italic.woff") format("woff"),
+    url("/fonts/Nikolai-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: bold;
+}
+
+:root {
+  --background: rgb(255, 255, 255);
+  --background-alpha: 255, 255, 255;
+  --foreground: rgb(0, 0, 0);
+  --foreground-alpha: 0, 0, 0;
+  --subdued: rgb(140, 140, 140);
+  --extra-subdued: rgb(220, 220, 220);
+  --accent: rgb(245, 42, 42);
+  --accent-alpha: 245, 42, 42;
+  --font-sans: "Text", system, -apple-system, "Helvetica Neue", Helvetica,
+    "Segoe UI", "Roboto", sans-serif;
+  --font-mono: "Mono", SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono,
+    monospace;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: rgb(0, 0, 0);
+    --background-alpha: 0, 0, 0;
+    --foreground: rgb(255, 255, 255);
+    --foreground-alpha: 255, 255, 255;
+    --subdued: rgb(168, 168, 168);
+    --extra-subdued: rgb(30, 30, 30);
+  }
+
+  ::selection {
+    color: var(--foreground);
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--foreground);
+  background-color: var(--background);
+  cursor: crosshair;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+}
+
+h1 {
+  font-family: "Nikolai", serif;
+  font-size: 1em;
+  font-style: italic;
+}
+
+h1 a,
+h1 a:hover {
+  text-decoration: none;
+  color: var(--foreground);
+  transition: opacity 150ms ease;
+}
+
+h1 a:hover {
+  opacity: 0.64;
+}
+
+h2 {
+  font-family: "Nikolai", serif;
+  font-size: 2em;
+  font-weight: normal;
+  font-style: italic;
+}
+
+h3 {
+  font-size: 1em;
+  font-weight: normal;
+  color: var(--subdued);
+}
+
+h4 + p {
+  margin-top: 0.125em;
+}
+
+p + p {
+  margin-top: 0.5em;
+}
+
+img + p {
+  margin-top: 1em;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: rgba(var(--foreground-alpha), 0.4);
+  transition: color 150ms ease, text-decoration-color 150ms ease;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+  cursor: crosshair;
+}
+
+a:focus-visible {
+  text-decoration-color: var(--foreground);
+  outline: none;
+}
+
+hr {
+  border: none;
+  background: var(--extra-subdued);
+  width: 100%;
+  max-width: 4em;
+  height: 1px;
+  margin: 2em 0;
+}
+
+.subdued {
+  color: var(--subdued);
+}
+
+.error {
+  color: var(--accent);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+.small {
+  font-size: 0.875em;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.underline {
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--foreground-alpha), 0.4);
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.m0 {
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 4em 1em;
+}
+
+.global-header {
+  padding-right: 2em;
+}
+
+.global-footer {
+  margin-top: 4em;
+}
+
+.global-nav {
+  margin-top: 2em;
+}
+
+.global-nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1em;
+}
+
+.global-nav a {
+  display: block;
+  margin: 0;
+}
+
+.content {
+  flex: 1;
+}
+
+.post-image {
+  margin: 4em 0;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-indicator {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  position: relative;
+}
+
+.loading-indicator:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 100%;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-right: 2px solid transparent;
+  animation: rotate 650ms ease-in-out infinite;
+}
+
+@media (min-width: 40rem) {
+  .wrapper {
+    padding: 6em 8vw;
+  }
+
+  .post-image img {
+    max-width: 84vw;
+    max-height: 80vh;
+  }
+}
