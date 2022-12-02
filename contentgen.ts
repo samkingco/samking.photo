@@ -140,7 +140,9 @@ async function main() {
       keywords: SlugValue[];
     }
 
-    export const images: ImageData[] = ${JSON.stringify(images.reverse())};
+    export const images: ImageData[] = ${JSON.stringify(
+      images.sort((a, b) => a.id - b.id).reverse()
+    )};
 
     export const keywords: SlugValue[] = ${JSON.stringify(
       keywords.sort((a, b) => a.slug.localeCompare(b.slug))
