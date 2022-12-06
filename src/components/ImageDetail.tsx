@@ -23,7 +23,9 @@ const ImageDetailModal = styled("div", {
   },
   "@md": {
     gridGap: "2em",
-    gridTemplateRows: "70vh max-content",
+    "@portrait": {
+      gridTemplateRows: "70vh max-content",
+    },
   },
 });
 
