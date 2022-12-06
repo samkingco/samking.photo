@@ -1,7 +1,5 @@
 import type { AppProps } from "next/app";
-import Head from "next/head";
 import Script from "next/script";
-import { getCssText } from "../../stitches.config";
 import { globalStyles } from "../components/globalStyles";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -9,12 +7,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head>
-        <style
-          id="stitches"
-          dangerouslySetInnerHTML={{ __html: getCssText() }}
-        />
-      </Head>
       <Component {...pageProps} />
       <Script
         defer
