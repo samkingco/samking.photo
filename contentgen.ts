@@ -57,7 +57,7 @@ async function readImageData(file: string): Promise<Image | undefined> {
     captured: new Date(exif.CreateDate).getTime(),
     width: size.width || 0,
     height: size.height || 0,
-    exposure: `1/${1 / exif.ExposureTime}s`,
+    exposure: `1/${Math.floor(1 / exif.ExposureTime)}s`,
     aperture: `ƒ/${exif.FNumber}`,
     iso: exif.ISO.toString(),
     focal: `${exif.FocalLength}mm`,
