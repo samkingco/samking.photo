@@ -1,19 +1,14 @@
-import { cva } from "class-variance-authority";
 import { format } from "date-fns";
 import { useContextualRouting } from "next-use-contextual-routing";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
+import { styled } from "../../stitches.config";
 import { ImageData } from "../blog-data";
 import { ImageDetail } from "./ImageDetail";
 import { Modal } from "./Modal";
 import { Body, Mono } from "./Typography";
-
-interface Props {
-  images: ImageData[];
-  layout: "grid" | "scroll";
-}
 
 function getSizeFromId(id: number) {
   if (id % 5 === 0) return "medium";
@@ -21,15 +16,118 @@ function getSizeFromId(id: number) {
   return "small";
 }
 
-const imagePost = cva("image-post", {
+const ImagePost = styled("div", {
+  width: "100%",
+  maxWidth: "90vh",
+  height: "fit-content",
+  a: {
+    display: "block",
+  },
   variants: {
     size: {
-      small: "small",
-      medium: "medium",
-      large: "large",
+      small: {
+        alignSelf: "flex-start",
+        margin: "0 auto",
+        padding: "0 16vw 0 8vw",
+        "&:nth-of-type(even)": {
+          padding: "0 8vw 0 16vw",
+        },
+        "@xs": {
+          padding: "0 32vw 0 12vw",
+          "&:nth-of-type(even)": {
+            padding: "0 12vw 0 32vw",
+          },
+        },
+        "@sm": {
+          "&, &:nth-of-type(even)": {
+            padding: "0 6vw",
+          },
+          "&:nth-of-type(3n + 1)": {
+            alignSelf: "center",
+            padding: "0 8vw 0 4vw",
+          },
+          "&:nth-of-type(3n + 2)": {
+            alignSelf: "flex-end",
+            padding: "0 4vw 0 8vw",
+          },
+        },
+        "@lg": {
+          "&:nth-of-type(3n + 1)": {
+            padding: "0 12vw 0 4vw",
+          },
+          "&:nth-of-type(3n + 2)": {
+            padding: "0 4vw 0 12vw",
+          },
+        },
+      },
+      medium: {
+        margin: "0 auto",
+        padding: "0 0 0 8vw",
+        justifySelf: "end",
+        "&:nth-of-type(even)": {
+          padding: "0 8vw 0 0",
+        },
+        "@sm": {
+          "&, &:nth-of-type(even)": {
+            margin: "2vw auto",
+            padding: 0,
+          },
+        },
+      },
+      large: {
+        "@sm": {
+          width: "100%",
+          maxWidth: "70vh",
+          gridColumn: "auto/span 2",
+          margin: "0 auto",
+          padding: "0 2vw",
+        },
+      },
     },
   },
 });
+
+const Wrapper = styled("div", {
+  variants: {
+    layout: {
+      grid: {
+        display: "grid",
+        gridTemplateColumns: "repeat(2, 1fr)",
+        gridAutoRows: "max-content",
+        gridGap: "2rem",
+        justifyItems: "flex-start",
+        "@sm": {
+          gridTemplateColumns: "repeat(3, 1fr)",
+        },
+        "@lg": {
+          gridTemplateColumns: "repeat(4, 1fr)",
+        },
+        "@xl": {
+          gridTemplateColumns: "repeat(5, 1fr)",
+        },
+        [`& ${ImagePost}`]: {
+          padding: "0!important",
+          margin: "0!important",
+          alignSelf: "start!important",
+          justifySelf: "start!important",
+        },
+      },
+      scroll: {
+        display: "grid",
+        gridGap: "8vw 4vw",
+        alignItems: "center",
+        "@sm": {
+          gridTemplateColumns: "1fr 1fr",
+        },
+      },
+    },
+  },
+});
+
+type Props = {
+  images: ImageData[];
+  layout: "grid" | "scroll";
+};
 
 export function ImagesLayout({ images, layout }: Props) {
   const router = useRouter();
@@ -80,16 +178,9 @@ export function ImagesLayout({ images, layout }: Props) {
   };
 
   return (
-    <div
-      className={
-        layout === "scroll" ? "image-layout-scroll" : "image-layout-grid"
-      }
-    >
+    <Wrapper layout={layout}>
       {images.map((image) => (
-        <div
-          className={imagePost({ size: getSizeFromId(image.id) })}
-          key={image.id}
-        >
+        <ImagePost size={getSizeFromId(image.id)} key={image.id}>
           <Link
             href={makeContextualHref({ id: image.id })}
             as={`/journal/${image.id}`}
@@ -102,9 +193,9 @@ export function ImagesLayout({ images, layout }: Props) {
               alt=""
             />
           </Link>
-          <Body className="image-post-title">{image.title}</Body>
+          <Body css={{ mt: "0.5rem" }}>{image.title}</Body>
           <Mono subdued>{format(image.captured, "dd/MM/yyyy")}</Mono>
-        </div>
+        </ImagePost>
       ))}
 
       <Modal
@@ -120,6 +211,6 @@ export function ImagesLayout({ images, layout }: Props) {
           />
         )}
       </Modal>
-    </div>
+    </Wrapper>
   );
 }

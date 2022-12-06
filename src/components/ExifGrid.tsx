@@ -1,16 +1,33 @@
 import Link from "next/link";
 import React from "react";
+import { styled } from "../../stitches.config";
 import { ImageData } from "../blog-data";
 import { Body, Mono } from "./Typography";
 
-interface Props {
-  image: ImageData;
-}
+const Grid = styled("dl", {
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  gridGap: "$space$4",
+  maxWidth: "16em",
+  "& dt, & dd": {
+    margin: 0,
+  },
+});
 
-export function ExifGrid({ image }: Props) {
+const GridItem = styled("div", {
+  gridColumn: "1 / -1",
+});
+
+const GridItemHalf = styled(GridItem, {
+  "@xxs": {
+    gridColumn: "initial",
+  },
+});
+
+export function ExifGrid({ image }: { image: ImageData }) {
   return (
-    <dl className="exif-grid">
-      <div className="exif-grid-item exif-grid-item-full">
+    <Grid>
+      <GridItem>
         <dt>
           <Mono subdued>Camera</Mono>
         </dt>
@@ -21,9 +38,9 @@ export function ExifGrid({ image }: Props) {
             </Link>
           </Body>
         </dd>
-      </div>
+      </GridItem>
 
-      <div className="exif-grid-item exif-grid-item-full">
+      <GridItem>
         <dt>
           <Mono subdued>Lens</Mono>
         </dt>
@@ -34,45 +51,45 @@ export function ExifGrid({ image }: Props) {
             </Link>
           </Body>
         </dd>
-      </div>
+      </GridItem>
 
-      <div className="exif-grid-item">
+      <GridItemHalf>
         <dt>
           <Mono subdued>Shutter</Mono>
         </dt>
         <dd>
           <Body>{image.exposure}</Body>
         </dd>
-      </div>
+      </GridItemHalf>
 
-      <div className="exif-grid-item">
+      <GridItemHalf>
         <dt>
           <Mono subdued>Aperture</Mono>
         </dt>
         <dd>
           <Body>{image.aperture}</Body>
         </dd>
-      </div>
+      </GridItemHalf>
 
-      <div className="exif-grid-item">
+      <GridItemHalf>
         <dt>
           <Mono subdued>ISO</Mono>
         </dt>
         <dd>
           <Body>{image.iso}</Body>
         </dd>
-      </div>
+      </GridItemHalf>
 
-      <div className="exif-grid-item">
+      <GridItemHalf>
         <dt>
           <Mono subdued>Focal length</Mono>
         </dt>
         <dd>
           <Body>{image.focal}</Body>
         </dd>
-      </div>
+      </GridItemHalf>
 
-      <div className="exif-grid-item exif-grid-item-full">
+      <GridItem>
         <dt>
           <Mono subdued>Tags</Mono>
         </dt>
@@ -98,7 +115,7 @@ export function ExifGrid({ image }: Props) {
             })}
           </Body>
         </dd>
-      </div>
-    </dl>
+      </GridItem>
+    </Grid>
   );
 }

@@ -1,89 +1,63 @@
-import { cva } from "class-variance-authority";
+import { styled } from "../../stitches.config";
 
-interface BaseTextProps {
+type BaseTextProps = {
   children: React.ReactNode;
   className?: string;
   as?: keyof JSX.IntrinsicElements;
-  isLoading?: boolean;
   subdued?: boolean;
   uppercase?: boolean;
   lowercase?: boolean;
-  size?: "small" | "large";
-}
+};
 
-const textVariants = (base: string[]) =>
-  cva(base, {
-    variants: {
-      isLoading: {
-        true: "loading-text",
-      },
-      subdued: {
-        true: "subdued",
-      },
-      uppercase: {
-        true: "uppercase",
-      },
-      lowercase: {
-        true: "lowercase",
-      },
-      size: {
-        small: "small",
-        large: "large",
+const variants = {
+  subdued: {
+    true: {
+      color: "$subdued",
+    },
+  },
+  uppercase: {
+    true: {
+      textTransform: "uppercase",
+    },
+  },
+  lowercase: {
+    true: {
+      textTransform: "lowercase",
+    },
+  },
+  noUnderline: {
+    true: {
+      "&, & a": {
+        textDecoration: "none",
       },
     },
-  });
-
-export const Title = ({ className, children, as, ...props }: BaseTextProps) => {
-  const Tag = as || "h1";
-  return (
-    <Tag className={textVariants(["title", className || ""])(props)}>
-      {children}
-    </Tag>
-  );
+  },
 };
 
-export const Heading = ({
-  className,
-  children,
-  as,
-  ...props
-}: BaseTextProps) => {
-  const Tag = as || "h2";
-  return (
-    <Tag className={textVariants(["heading", className || ""])(props)}>
-      {children}
-    </Tag>
-  );
-};
+export const Heading = styled("h2", {
+  variants,
+  fontFamily: "$sans",
+  fontWeight: "normal",
+  fontSize: "1.6rem",
+});
 
-export const Subheading = ({
-  className,
-  children,
-  as,
-  ...props
-}: BaseTextProps) => {
-  const Tag = as || "h3";
-  return (
-    <Tag className={textVariants(["subheading", className || ""])(props)}>
-      {children}
-    </Tag>
-  );
-};
+export const Subheading = styled("h3", {
+  variants,
+  fontFamily: "$sans",
+  fontWeight: "normal",
+  fontSize: "1rem",
+});
 
-export const Body = ({ className, children, as, ...props }: BaseTextProps) => {
-  const Tag = as || "p";
-  return (
-    <Tag className={textVariants(["body-text", className || ""])(props)}>
-      {children}
-    </Tag>
-  );
-};
+export const Body = styled("p", {
+  variants,
+  fontFamily: "$sans",
+  fontWeight: "normal",
+  fontSize: "1rem",
+});
 
-export const Mono = ({ className, children, as, ...props }: BaseTextProps) => {
-  const Tag = as || "p";
-  return (
-    <Tag className={textVariants(["mono-text", className || ""])(props)}>
-      {children}
-    </Tag>
-  );
-};
+export const Mono = styled("p", {
+  variants,
+  fontFamily: "$mono",
+  fontWeight: "normal",
+  fontSize: "0.875rem",
+});

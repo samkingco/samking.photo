@@ -1,11 +1,11 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-interface Props {
+type Props = {
   title?: string;
   description?: string;
   socialImage?: string;
-}
+};
 
 export default function SocialMeta({
   title = "Sam King Photo—",

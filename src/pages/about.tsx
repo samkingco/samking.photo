@@ -1,18 +1,30 @@
+import { styled } from "../../stitches.config";
 import { Layout } from "../components/Layout";
 import SocialMeta from "../components/SocialMeta";
 import { Body, Mono } from "../components/Typography";
+
+const Blurb = styled("article", {
+  maxWidth: "40rem",
+});
+
+const WorkBlock = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "$space$2",
+  maxWidth: "32rem",
+});
 
 export default function Work() {
   return (
     <Layout>
       <SocialMeta title="About—Sam King Photo" />
 
-      <article className="blurb">
+      <Blurb>
         <Mono>Work in progress, more coming soon</Mono>
 
         <hr />
 
-        <div className="work-block">
+        <WorkBlock>
           <Mono>ICE64</Mono>
           <Body>
             16 photographs documenting the desolate landscape of Iceland during
@@ -21,11 +33,11 @@ export default function Work() {
           <Mono>
             <a href="https://ice64.samking.studio">ice64.samking.studio</a>
           </Mono>
-        </div>
+        </WorkBlock>
 
         <hr />
 
-        <div className="work-block">
+        <WorkBlock>
           <Mono>Roots</Mono>
           <Body>
             A collection of 40 photographs exploring my roots in the Scottish
@@ -34,11 +46,11 @@ export default function Work() {
           <Mono>
             <a href="https://roots.samking.studio">roots.samking.studio</a>
           </Mono>
-        </div>
+        </WorkBlock>
 
         <hr />
 
-        <div className="work-block">
+        <WorkBlock>
           <Mono>Prints</Mono>
           <Body>
             High quality archival Giclée prints for holders of Roots NFTs.
@@ -46,8 +58,8 @@ export default function Work() {
           <Mono>
             <a href="https://prints.samking.studio">prints.samking.studio</a>
           </Mono>
-        </div>
-      </article>
+        </WorkBlock>
+      </Blurb>
     </Layout>
   );
 }

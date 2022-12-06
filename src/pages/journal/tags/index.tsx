@@ -1,9 +1,16 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";
+import { styled } from "../../../../stitches.config";
 import { cameras, keywords, lenses } from "../../../blog-data";
 import { Layout } from "../../../components/Layout";
 import SocialMeta from "../../../components/SocialMeta";
 import { Body, Mono } from "../../../components/Typography";
+
+const Blocks = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "2em",
+});
 
 export const getStaticProps: GetStaticProps<{
   keywords: typeof keywords;
@@ -23,7 +30,7 @@ export default function KeywordsPage({
     <Layout>
       <SocialMeta title="Tags—Sam King Photo" />
 
-      <div className="tag-blocks">
+      <Blocks>
         <div>
           <Mono subdued>Tags</Mono>
           {keywords.map((keyword) => (
@@ -50,7 +57,7 @@ export default function KeywordsPage({
             </Body>
           ))}
         </div>
-      </div>
+      </Blocks>
     </Layout>
   );
 }

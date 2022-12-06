@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
+import { styled } from "../../../../stitches.config";
 import {
   cameras,
   images,
@@ -60,6 +61,13 @@ export const getStaticProps: GetStaticProps<{
   return { props: { title: keyword.title, images: keywordImages } };
 };
 
+const Header = styled("header", {
+  marginBottom: "4em",
+  display: "flex",
+  flexDirection: "column",
+  gap: "1em",
+});
+
 export default function Keyword({
   images,
   title,
@@ -71,7 +79,7 @@ export default function Keyword({
         socialImage={images[0].src}
       />
 
-      <header className="page-header">
+      <Header>
         <Mono subdued>
           <Link href="/journal/tags">Tags</Link>
         </Mono>
@@ -79,7 +87,7 @@ export default function Keyword({
           <Body as="h2">{title}</Body>
           <Mono subdued>{pluralise(images.length, "image", "images")}</Mono>
         </div>
-      </header>
+      </Header>
 
       <ImagesLayout images={images} layout="grid" />
     </Layout>
