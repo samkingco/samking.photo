@@ -110,6 +110,7 @@ const Wrapper = styled("div", {
           margin: "0!important",
           alignSelf: "start!important",
           justifySelf: "start!important",
+          gridColumn: "initial",
         },
       },
       scroll: {
