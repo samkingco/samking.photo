@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { ImageData, images } from "../../blog-data";
 import { ImageDetail } from "../../components/ImageDetail";
 import SocialMeta from "../../components/SocialMeta";
+import { ImageData, images } from "../../data/journal";
 
 export const getStaticPaths: GetStaticPaths = async (context) => {
   const paths = images.map((i) => ({ params: { id: i.id.toString() } }));

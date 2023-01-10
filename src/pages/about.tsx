@@ -1,17 +1,18 @@
+import Image from "next/image";
 import { styled } from "../../stitches.config";
 import { Layout } from "../components/Layout";
 import SocialMeta from "../components/SocialMeta";
-import { Body, Mono } from "../components/Typography";
+import { Body } from "../components/Typography";
 
 const Blurb = styled("article", {
   maxWidth: "40rem",
-});
-
-const WorkBlock = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "$space$2",
-  maxWidth: "32rem",
+  img: {
+    maxWidth: "10rem",
+    mb: "2rem",
+  },
 });
 
 export default function Work() {
@@ -20,45 +21,25 @@ export default function Work() {
       <SocialMeta title="About—Sam King Photo" />
 
       <Blurb>
-        <Mono>Work in progress, more coming soon</Mono>
-
-        <hr />
-
-        <WorkBlock>
-          <Mono>ICE64</Mono>
-          <Body>
-            16 photographs documenting the desolate landscape of Iceland during
-            the winter. Available to collect as NFTs.
-          </Body>
-          <Mono>
-            <a href="https://ice64.samking.studio">ice64.samking.studio</a>
-          </Mono>
-        </WorkBlock>
-
-        <hr />
-
-        <WorkBlock>
-          <Mono>Roots</Mono>
-          <Body>
-            A collection of 40 photographs exploring my roots in the Scottish
-            Highlands. Available to collect as NFTs.
-          </Body>
-          <Mono>
-            <a href="https://roots.samking.studio">roots.samking.studio</a>
-          </Mono>
-        </WorkBlock>
-
-        <hr />
-
-        <WorkBlock>
-          <Mono>Prints</Mono>
-          <Body>
-            High quality archival Giclée prints for holders of Roots NFTs.
-          </Body>
-          <Mono>
-            <a href="https://prints.samking.studio">prints.samking.studio</a>
-          </Mono>
-        </WorkBlock>
+        <Image
+          src="/avatar.jpg"
+          width={180}
+          height={180}
+          alt="A black and white mirror self portrait of Sam King taken on a Hasselblad 500CM film camera."
+        />
+        <Body>
+          I started out my journey with a camera in 2007, mostly shooting the
+          action sports scene in the UK. When the magazines started going
+          online, I moved into a career of design and coding, but kept shooting
+          for myself. My photographic interests have since moved away from the
+          action and towards the stillness of landscapes and environments.
+        </Body>
+        <Body>
+          I recently took a break from my design career and I'm getting back to
+          making photo work more full-time. I'm currently exploring my heritage,
+          and also how the world can feel to an Autistic person like myself.
+        </Body>
+        <Body>You can find me on most social platforms @samkingco.</Body>
       </Blurb>
     </Layout>
   );

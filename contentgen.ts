@@ -157,8 +157,8 @@ async function main() {
     )};
   `;
 
-  fs.writeFileSync("src/blog-data.ts", blogDataContents);
-  console.log("Blog data saved to `src/blog-data.ts`.");
+  fs.writeFileSync("src/journal.ts", blogDataContents);
+  console.log("Blog data saved to `src/journal.ts`.");
 }
 
 function slugify(str: string) {

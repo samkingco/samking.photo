@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { styled } from "../../stitches.config";
-import { ImageData } from "../blog-data";
+import { ImageData } from "../data/journal";
 import { ExifGrid } from "./ExifGrid";
 import { Mono, Subheading } from "./Typography";
 

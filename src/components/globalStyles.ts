@@ -65,7 +65,7 @@ export const globalStyles = globalCss({
   },
   "a, button": {
     color: "inherit",
-    textDecorationColor: "rgba($foreground-alpha, 0.4)",
+    textDecorationColor: "rgba($foregroundAlpha, 0.4)",
     transition: "color 150ms ease, text-decoration-color 150ms ease",
     "&:hover": {
       color: "$accent",
@@ -73,13 +73,14 @@ export const globalStyles = globalCss({
       cursor: "crosshair",
     },
     "&:focus-visible": {
+      color: "$accent",
       textDecorationColor: "$foreground",
       outline: "none",
     },
   },
   hr: {
     border: "none",
-    background: "$extra-subdued",
+    background: "$extraSubdued",
     width: "100%",
     maxWidth: "4em",
     height: "1px",
@@ -92,14 +93,11 @@ export const globalStyles = globalCss({
   "@media (prefers-color-scheme: dark)": {
     ":root": {
       "--colors-background": "rgb(0, 0, 0)",
-      "--colors-background-alpha": "0, 0, 0",
+      "--colors-backgroundAlpha": "0, 0, 0",
       "--colors-foreground": "rgb(255, 255, 255)",
-      "--colors-foreground-alpha": "255, 255, 255",
+      "--colors-foregroundAlpha": "255, 255, 255",
       "--colors-subdued": "rgb(168, 168, 168)",
-      "--colors-extra-subdued": "rgb(30, 30, 30)",
-    },
-    "::selection": {
-      color: "$foreground",
+      "--colors-extraSubdued": "rgb(30, 30, 30)",
     },
   },
 });

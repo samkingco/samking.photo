@@ -2,17 +2,17 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
 import { styled } from "../../../../stitches.config";
+import { ImagesLayout } from "../../../components/ImagesLayout";
+import { Layout } from "../../../components/Layout";
+import SocialMeta from "../../../components/SocialMeta";
+import { Body, Mono } from "../../../components/Typography";
 import {
   cameras,
   images,
   keywords,
   lenses,
   SlugValue,
-} from "../../../blog-data";
-import { ImagesLayout } from "../../../components/ImagesLayout";
-import { Layout } from "../../../components/Layout";
-import SocialMeta from "../../../components/SocialMeta";
-import { Body, Mono } from "../../../components/Typography";
+} from "../../../data/journal";
 import { pluralise } from "../../../utils/pluralise";
 
 export const getStaticPaths: GetStaticPaths = async () => {

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { styled } from "../../stitches.config";
-import { ImageData } from "../blog-data";
+import { ImageData } from "../data/journal";
 import { Body, Mono } from "./Typography";
 
 const Grid = styled("dl", {

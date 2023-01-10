@@ -1,10 +1,10 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { styled } from "../../../../stitches.config";
-import { cameras, keywords, lenses } from "../../../blog-data";
 import { Layout } from "../../../components/Layout";
 import SocialMeta from "../../../components/SocialMeta";
 import { Body, Mono } from "../../../components/Typography";
+import { cameras, keywords, lenses } from "../../../data/journal";
 
 const Blocks = styled("div", {
   display: "flex",
@@ -28,7 +28,10 @@ export default function KeywordsPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
-      <SocialMeta title="Tags—Sam King Photo" />
+      <SocialMeta
+        title="Tags—Sam King Photo"
+        socialImage="/og-image-journal.png"
+      />
 
       <Blocks>
         <div>
