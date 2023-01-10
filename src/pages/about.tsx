@@ -18,7 +18,10 @@ const Blurb = styled("article", {
 export default function Work() {
   return (
     <Layout>
-      <SocialMeta title="About—Sam King Photo" />
+      <SocialMeta
+        title="About—Sam King Photo"
+        description="Information about the photographer, Sam King."
+      />
 
       <Blurb>
         <Image

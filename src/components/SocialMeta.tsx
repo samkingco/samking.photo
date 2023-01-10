@@ -9,7 +9,7 @@ type Props = {
 
 export default function SocialMeta({
   title = "Sam King Photo—",
-  description = "A journal of photographs by Sam King.",
+  description = "Photography by Sam King",
   socialImage = "/og-image.png",
 }: Props) {
   const router = useRouter();

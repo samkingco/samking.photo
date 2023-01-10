@@ -40,7 +40,6 @@ const Description = styled(Body, {
 
 export default function WorkPage() {
   const { data } = useLiveTokenData();
-  console.log(data);
 
   return (
     <Layout>

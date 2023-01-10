@@ -35,8 +35,9 @@ export default function PostPage({
   return (
     <>
       <SocialMeta
-        socialImage={image.src}
         title={`${image.id}. ${image.title}—Sam King Photo`}
+        description="A photograph from the journal."
+        socialImage={image.src}
       />
       <ImageDetail image={image} closeHref="/" />
     </>

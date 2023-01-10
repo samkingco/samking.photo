@@ -75,8 +75,9 @@ export default function Keyword({
   return (
     <Layout>
       <SocialMeta
-        title={`${title}—Sam King Photo`}
         socialImage={images[0].src}
+        title={`${title}—Sam King Photo`}
+        description={`Journal photographs that are tagged with "${title}".`}
       />
 
       <Header>

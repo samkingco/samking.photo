@@ -30,6 +30,7 @@ export default function KeywordsPage({
     <Layout>
       <SocialMeta
         title="Tags—Sam King Photo"
+        description="Browse journal photographs by tag and camera information."
         socialImage="/og-image-journal.png"
       />
 
