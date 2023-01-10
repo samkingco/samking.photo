@@ -8,6 +8,10 @@ const nextConfig = {
         source: "/posts",
         destination: "/",
       },
+      {
+        source: "/work",
+        destination: "/",
+      },
     ];
   },
 };
