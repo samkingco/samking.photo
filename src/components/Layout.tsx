@@ -33,7 +33,7 @@ const Header = styled("header", {
     left: "0",
     right: "0",
     background:
-      "linear-gradient(to bottom, rgb($backgroundAlpha) 20%, transparent 100%);",
+      "linear-gradient(to bottom, rgba($backgroundAlpha, 0.9) 20%, transparent 100%);",
     height: "8rem",
     zIndex: 0,
     pointerEvents: "none",

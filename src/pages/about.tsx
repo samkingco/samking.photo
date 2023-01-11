@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { styled } from "../../stitches.config";
 import { Layout } from "../components/Layout";
 import SocialMeta from "../components/SocialMeta";
@@ -43,6 +44,18 @@ export default function Work() {
           and also how the world can feel to an Autistic person like myself.
         </Body>
         <Body>You can find me on most social platforms @samkingco.</Body>
+        <Body>
+          I also have a free newsletter called Practice Process where I share
+          the things I'm working on, and early releases of new work. You can{" "}
+          <Link
+            href="https://practiceprocess.substack.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            subscribe on Substack
+          </Link>
+          .
+        </Body>
       </Blurb>
     </Layout>
   );
