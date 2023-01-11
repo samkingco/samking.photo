@@ -22,6 +22,22 @@ const Header = styled("header", {
   display: "grid",
   gridTemplateColumns: "1fr max-content",
   alignItems: "baseline",
+  "& > *": {
+    zIndex: 1,
+  },
+  "&:after": {
+    content: "",
+    display: "block",
+    position: "fixed",
+    top: "0",
+    left: "0",
+    right: "0",
+    background:
+      "linear-gradient(to bottom, rgb($backgroundAlpha) 20%, transparent 100%);",
+    height: "8rem",
+    zIndex: 0,
+    pointerEvents: "none",
+  },
 });
 
 const Nav = styled("nav", {
