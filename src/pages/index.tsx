@@ -21,6 +21,9 @@ const ProjectAside = styled("aside", {
   "@xl": {
     width: "24vw",
   },
+  svg: {
+    ml: "0.5rem",
+  },
 });
 
 const Project = styled("section", {
@@ -53,7 +56,8 @@ export default function WorkPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Roots Editions <ExternalLinkIcon />
+              Roots Editions
+              <ExternalLinkIcon />
             </Link>
           </Subheading>
           <Description subdued>
@@ -77,7 +81,8 @@ export default function WorkPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Roots <ExternalLinkIcon />
+              Roots
+              <ExternalLinkIcon />
             </Link>
           </Subheading>
           <Description subdued>
@@ -98,7 +103,8 @@ export default function WorkPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              ICE64 <ExternalLinkIcon />
+              ICE64
+              <ExternalLinkIcon />
             </Link>
           </Subheading>
           <Description subdued>
@@ -129,7 +135,8 @@ export default function WorkPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Drops <ExternalLinkIcon />
+              Drops
+              <ExternalLinkIcon />
             </Link>
           </Subheading>
           <Description subdued>
