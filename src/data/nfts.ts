@@ -61,8 +61,11 @@ export const rootsEditionsTokens: Token[] = Array.from(
   return {
     project: "ROOTS_EDITIONS",
     id: i,
-    released: i <= 1,
-    price: ethers.utils.parseEther("0.08"),
+    released: i <= 2,
+    price:
+      i === 1
+        ? ethers.utils.parseEther("0.08")
+        : ethers.utils.parseEther("0.05"),
     editionSize: 20,
     soldOut: false,
     image: `/nfts/roots-editions/${i}.jpg`,

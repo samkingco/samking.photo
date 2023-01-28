@@ -99,7 +99,7 @@ export function TokenGrid({ tokens }: Props) {
               ) : (
                 <>#{token.id}</>
               )}
-              {token.mintedCount && token.editionSize ? (
+              {token.mintedCount !== undefined && token.editionSize ? (
                 <Mono as="span" subdued>
                   {" "}
                   {`(${token.mintedCount}/${token.editionSize})`}
