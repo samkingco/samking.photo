@@ -61,7 +61,7 @@ export const rootsEditionsTokens: Token[] = Array.from(
   return {
     project: "ROOTS_EDITIONS",
     id: i,
-    released: i <= 2,
+    released: i <= 4,
     price:
       i === 1
         ? ethers.utils.parseEther("0.08")
