@@ -105,7 +105,7 @@ export const ice64EditionTokens: Token[] = Array.from(
 });
 
 export const dropsTokens: Token[] = Array.from(
-  { length: 5 },
+  { length: 6 },
   (v, i) => i + 1
 ).map((i) => {
   return {
@@ -115,6 +115,6 @@ export const dropsTokens: Token[] = Array.from(
     price: ethers.utils.parseEther("0"),
     soldOut: false,
     image: `/nfts/drops/${i}.jpg`,
-    imageAspectRatio: i == 4 ? 5 / 4 : 1,
+    imageAspectRatio: i === 4 ? 5 / 4 : 1,
   };
 });
