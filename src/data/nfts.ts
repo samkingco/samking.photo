@@ -7,7 +7,7 @@ export const PROJECTS = {
   DROPS: "DROPS",
 } as const;
 
-export type Project = typeof PROJECTS[keyof typeof PROJECTS];
+export type Project = (typeof PROJECTS)[keyof typeof PROJECTS];
 
 export function projectLink(project: Project): string {
   if (project === "ROOTS") return "https://roots.samking.photo";
@@ -61,7 +61,7 @@ export const rootsEditionsTokens: Token[] = Array.from(
   return {
     project: "ROOTS_EDITIONS",
     id: i,
-    released: i <= 4,
+    released: i <= 5,
     price:
       i === 1
         ? ethers.utils.parseEther("0.08")
